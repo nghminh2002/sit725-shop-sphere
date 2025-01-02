@@ -1,0 +1,21 @@
+{
+  "name": "sit725-2024-t3-group-project",
+  "version": "1.0.0",
+  "description": "SIT725 group project - e-commerce platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Milly Nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^14.3.2",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.3",
+    "request": "^2.88.2",
+    "socket.io": "^4.8.1"
+  }
+}
