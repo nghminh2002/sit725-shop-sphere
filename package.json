@@ -4,7 +4,7 @@
   "description": "SIT725 group project - e-commerce platform",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "Milly Nguyen",
   "license": "ISC",
@@ -12,9 +12,12 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^14.3.2",
+    "ejs": "^3.1.10",
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
+    "materialize-css": "^1.0.0",
     "mongoose": "^8.8.3",
+    "nodemon": "^3.1.9",
     "request": "^2.88.2",
     "socket.io": "^4.8.1"
   }

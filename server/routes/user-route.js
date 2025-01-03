@@ -1,9 +1,9 @@
-const { Router } = require("express");
+const express = require('express');
+const router = express.Router();
 const UserController = require("../controllers/user-controller.js");
 const UserService = require("../services/user-service.js");
 const { authGuard } = require("../middlewares/auth-middleware.js");
 
-const router = Router();
 const userService = new UserService();
 const userController = new UserController(userService);
 
