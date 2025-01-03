@@ -1,43 +1,44 @@
 const express = require("express");
-const cors = require("cors");
-const connectDB = require("./src/config/database-config.js");
-const apiRoutes = require("./src/routes/index.js");
+const app = express();
 const path = require("path");
-const { createServer } = require("http");
-const { Server } = require("socket.io");
+const port = process.env.PORT || 3000;
+
+// initialize socket.io
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+
+const connectDB = require("./server/config/database-config.js");
+const apiRoutes = require("./server/routes/index.js");
 
 require("dotenv").config();
 
-const app = express();
-const httpServer = createServer(app);
-const io = new Server(httpServer);
+connectDB();
 
-app.use(cors());
-app.use(express.static(path.join(__dirname, "public")));
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
 
-connectDB();
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 // API routes
 app.use("/api", apiRoutes);
 
 // Default route to serve the login page
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "pages", "login.html"));
+  res.render("login");
 });
 app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "pages", "login.html"));
+  res.render("login");
 });
 app.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "pages", "register.html"));
+  res.render("register");
 });
 app.get("/profile", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "pages", "profile.html"));
+  res.render("profile");
 });
 
-const port = process.env.PORT || 911;
-
-httpServer.listen(port, () => {
+server.listen(port, () => {
   console.log("App listening to: " + port);
 });

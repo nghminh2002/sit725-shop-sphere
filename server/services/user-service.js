@@ -80,7 +80,7 @@ class UserService {
         throw new Error("JWT_SECRET is not defined");
       }
 
-      const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET);
+      const decoded = jwt.verify(refreshToken, secret);
 
       // Find user and check if refresh token is valid
       const user = await UserRepository.findById(decoded.id);

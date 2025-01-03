@@ -31,7 +31,7 @@ async function loadProfile() {
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.removeItem("access-token");
-  window.location.href = "/pages/login.html";
+  window.location.href = "/login";
 });
 
 // Load profile when page loads

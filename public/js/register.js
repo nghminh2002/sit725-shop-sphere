@@ -20,7 +20,7 @@ document
 
       if (response.ok) {
         alert("Registration successful!");
-        window.location.href = "/pages/login.html";
+        window.location.href = "/login";
       } else {
         alert(data.message || "Registration failed");
       }

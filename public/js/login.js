@@ -19,7 +19,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
       console.log(data);
       localStorage.setItem("access-token", data.data.accessToken);
       localStorage.setItem("refresh-token", data.data.refreshToken);
-      window.location.href = "/pages/profile.html";
+      window.location.href = "/profile";
     } else {
       alert(data.message || "Login failed");
     }
